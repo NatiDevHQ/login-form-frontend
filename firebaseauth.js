@@ -5,6 +5,8 @@ import {
   sendPasswordResetEmail,
   createUserWithEmailAndPassword, // ✅ Fixed function name
   signInWithEmailAndPassword,
+  GoogleAuthProvider,
+  signInWithPopup,
 } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-auth.js";
 import {
   getFirestore,
@@ -24,8 +26,27 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
 const db = getFirestore(app);
+
+const auth = getAuth(app);
+auth.languageCode = "en";
+const provider = new GoogleAuthProvider();
+
+const googleLogin = document.getElementById("google-login-btn");
+
+googleLogin.addEventListener("click", function () {
+  signInWithPopup(auth, provider)
+    .then((result) => {
+      const credential = GoogleAuthProvider.credentialFromResult(result);
+      const user = result.user;
+      console.log(user);
+      window.location.href = "home.html";
+    })
+    .catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+    });
+});
 
 function showMessage(message, divId) {
   var messageDiv = document.getElementById(divId);
