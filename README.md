@@ -1,5 +1,3 @@
-Here's a clean and professional README.md for your login-form-frontend project using Firebase Authentication:
-
 
 ---
 
