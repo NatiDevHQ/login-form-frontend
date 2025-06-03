@@ -34,7 +34,7 @@ Real-time user session detection
 
 1. Clone the repo:
 
-git clone https://github.com/yourusername/login-form-frontend.git
+git clone https://github.com/eng-natole/login-form-frontend.git
 cd login-form-frontend
 
 
