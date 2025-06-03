@@ -75,5 +75,3 @@ This project is open source and free to use.
 
 ---
 
-Let me know if you'd like a version tailored for React, or if you're using Tailwind or another UI library.
-
